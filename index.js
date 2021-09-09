@@ -30,7 +30,12 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  let newArr = movies.map((movie)=>{
+    return movie.title;
+  })
+    return newArr;
+}
 
 /**
  * checkIfAnyMovieHasRating()
@@ -50,7 +55,16 @@ function getAllMovieTitles() {}
  *  checkIfAnyMovieHasRating(movies, "R");
  *  //> false
  */
-function checkIfAnyMovieHasRating() {}
+function checkIfAnyMovieHasRating(movies, rating) {
+  let result = movies.some((movie)=>{
+    if(movies.rated === rating){
+      return true;
+    }else{
+      return rating
+    }
+  })
+    return result;w
+}
 
 /**
  * findById()
@@ -68,7 +82,16 @@ function checkIfAnyMovieHasRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies,id) {
+  let newObj = movies.find((movie)=>{
+    if(id === movie.imdbID){
+      return movie.title;        
+     }else if(!id){
+       return null;
+     }
+  })
+    return newObj;
+}
 
 /**
  * filterByGenre()
@@ -92,7 +115,17 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let newObj = movies.filter((movie)=>{
+    if(genre === movie.title){
+      return movie.title;
+    }else if(genre){
+      return null;
+    }
+  })
+    return newObj;
+}
+
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -118,7 +151,7 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {}
 
 /**
  * getRottenTomatoesScoreByMovie()
